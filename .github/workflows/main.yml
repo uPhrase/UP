@@ -15,7 +15,7 @@ jobs:
       with:
         python-version: 3.7
     - run: pip install pyinstaller
-    - run: pyinstaller uPhrase.py
+    - run: pyinstaller uPhrase.py --onefile
     - uses: actions/upload-artifact@v2
       with:
         path: dist/*
