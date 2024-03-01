@@ -3,20 +3,19 @@ on:
   workflow_dispatch:
 
 jobs:
-   board-automation:
-    build:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        matrix:
-          os: ['windows-latest']
-  
-      steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - run: pip install pyinstaller
-      - run: pyinstaller --onefile uPhrase.py
-      - uses: actions/upload-artifact@v4
-        with:
-          path: dist/*
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['windows-latest']
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - run: pip install pyinstaller
+    - run: pyinstaller --onefile uPhrase.py
+    - uses: actions/upload-artifact@v4
+      with:
+        path: dist/*
