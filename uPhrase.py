@@ -53,7 +53,7 @@ domainlist = b'|'.join(f2)
 domainlist = br'/^.*?' + domainlist + br'.*?/'
 
 
-with BoundedThreadPoolExecutor(max_workers=10) as executor:
+with BoundedThreadPoolExecutor(max_workers=64) as executor:
 	for item in f1:
 		executor.submit(deffunc, item)
 
